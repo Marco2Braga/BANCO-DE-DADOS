@@ -17,13 +17,14 @@ CREATE TABLE gestao (
 /*CRIANDO TABELA DE REGISTRO DE FOLGAS*/
 CREATE TABLE registro_folgas (
     matricula SERIAL PRIMARY KEY,
-    nome INT,
-    saldo INT NOT NULL,
-    dt_folga DATE NOT NULL,
-    qnt_dias INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    saldo INT,
+    dt_folga DATE,
+    qnt_dias INT,
     status INT NOT NULL,
-    id_gestao INT,
-    FOREIGN KEY (matricula) REFERENCES cad_funcionarios(matricula),
+    id_gestao INT PRIMARY KEY,
+    dt_resposta DATE,
+    FOREIGN KEY (matricula) REFERENCES cad_funcionario(matricula),
     FOREIGN KEY (id_gestao) REFERENCES gestao(id_gestao)
 );
 
